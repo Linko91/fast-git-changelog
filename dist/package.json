@@ -1,0 +1,42 @@
+{
+    "name": "fast-git-changelog",
+    "version": "1.0.4",
+    "description": "fast & simple changelog generator from git repository",
+    "main": "dist/src/index.js",
+    "preferGlobal": true,
+    "scripts": {
+        "build": "tsc"
+    },
+    "bin": {
+        "fast-git-changelog": "dist/src/index.js",
+        "fgc": "dist/src/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Linko91/fast-git-changelog.git"
+    },
+    "keywords": [
+        "changelog"
+    ],
+    "author": "Davide Di Modica <webmaster.ddm@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Linko91/fast-git-changelog/issues"
+    },
+    "homepage": "https://github.com/Linko91/fast-git-changelog#readme",
+    "dependencies": {
+        "chalk": "^4.1.2",
+        "clear": "0.1.0",
+        "clui": "^0.3.6",
+        "dayjs": "^1.11.5",
+        "figlet": "^1.5.2",
+        "lodash": "^4.17.21"
+    },
+    "devDependencies": {
+        "@types/clear": "^0.1.2",
+        "@types/clui": "^0.3.1",
+        "@types/lodash": "^4.14.186",
+        "@types/node": "^18.11.2",
+        "typescript": "^4.8.4"
+    }
+}
