@@ -67,7 +67,7 @@ function getLog(repo) {
 
 function parseLog(raw) {
 	var rawcommits = raw.split("||start||")
-	var commits = []
+	const commits = []
 
 	for (var i = 1; i < rawcommits.length; i++) {
 		var ic = i - 1
