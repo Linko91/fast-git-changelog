@@ -22,13 +22,9 @@ var CLI = require("clui")
 var Spinner = CLI.Spinner
 var figlet = require("figlet")
 var dayjs = require("dayjs")
-var _ = require("underscore")
-var ustr = require("underscore.string")
+var _ = require("lodash")
 var path = require("path")
 var pjson = require("./package.json")
-
-var DEBUG = true
-_.mixin(ustr.exports())
 
 clear()
 console.log(chalk.white.bold(figlet.textSync("fast git changelog", { font: "slant", horizontalLayout: "full" })))
@@ -71,7 +67,7 @@ function getLog(repo) {
 
 function parseLog(raw) {
 	var rawcommits = raw.split("||start||")
-	var commits = []
+	const commits = []
 
 	for (var i = 1; i < rawcommits.length; i++) {
 		var ic = i - 1
