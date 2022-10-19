@@ -13,28 +13,28 @@
 ////////////////////////////////////
 /////// REQUIRE MODULE /////////////
 ////////////////////////////////////
-var os = require("os")
-var fs = require("fs")
-var child_process = require("child_process")
-var chalk = require("chalk")
-var clear = require("clear")
-var CLI = require("clui")
-var Spinner = CLI.Spinner
-var figlet = require("figlet")
-var dayjs = require("dayjs")
-var _ = require("lodash")
-var path = require("path")
-var pjson = require("./package.json")
+import os from "os"
+import fs from "fs"
+import child_process from "child_process"
+import chalk from "chalk"
+import clear from "clear"
+import CLI from "clui"
+import Spinner = CLI.Spinner
+import dayjs from "dayjs"
+import _ from "lodash"
+import path from "path"
+import pjson from "./package.json"
 
 clear()
-console.log(chalk.white.bold(figlet.textSync("fast git changelog", { font: "slant", horizontalLayout: "full" })))
+
+console.log(chalk.white.bold("FAST GIT CHANGELOG"))
 console.log("version " + chalk.white.bold(pjson.version))
 
-var spin = new Spinner("fetching log...")
+const spin = new Spinner("fetching log...")
 spin.start()
 getLog(process.cwd())
 
-function getLog(repo) {
+function getLog(repo: string) {
 	var repo = path.normalize(repo)
 	var command = 'git log --format="||start||hash=%h---date=%ci---tags=%d---subject=%s---body=%b@end@" --name-status'
 
@@ -65,9 +65,9 @@ function getLog(repo) {
 	})
 }
 
-function parseLog(raw) {
-	var rawcommits = raw.split("||start||")
-	const commits = []
+function parseLog(raw: string) {
+	const rawcommits: any = raw.split("||start||")
+	const commits: any = []
 
 	for (var i = 1; i < rawcommits.length; i++) {
 		var ic = i - 1
